@@ -6,7 +6,6 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { motion, AnimatePresence } from 'framer-motion';
 import Head from 'next/head';
-import Link from 'next/link';
 import { FaXTwitter } from 'react-icons/fa6';
 
 const testimonials = [
