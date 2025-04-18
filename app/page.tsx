@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { motion, AnimatePresence } from 'framer-motion';
 import Head from 'next/head';
+import Link from 'next/link';
 
 const testimonials = [
   {
@@ -73,7 +74,6 @@ export default function Home() {
         <meta property="og:image" content="/logo.png" />
         <meta property="og:type" content="website" />
         <link rel="icon" href="/favicon.ico" />
-        {/* Analytics Script */}
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-9VKZ76T3V8"></script>
         <script
           dangerouslySetInnerHTML={{
@@ -132,6 +132,19 @@ export default function Home() {
             <span className="hover:text-white transition">MySlabs</span>
             <span className="hover:text-white transition">PSA</span>
             <span className="hover:text-white transition">Beckett</span>
+          </div>
+
+          {/* Twitter Follow */}
+          <div className="flex justify-center mb-6">
+            <a href="https://twitter.com/AlphaSlabsHQ" target="_blank" rel="noopener noreferrer">
+              <Image
+                src="/twitter-icon.svg"
+                alt="Follow on Twitter"
+                width={36}
+                height={36}
+                className="hover:opacity-80 transition"
+              />
+            </a>
           </div>
 
           {/* Carousel Testimonial */}
