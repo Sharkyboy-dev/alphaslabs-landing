@@ -153,7 +153,7 @@ export default function Home() {
               exit={{ opacity: 0, y: 20 }}
               className="fixed bottom-10 bg-green-600 text-white px-6 py-3 rounded-xl shadow-lg"
             >
-              🎉 You're on the list!
+              🎉 You&apos;re on the list!
             </motion.div>
           )}
         </AnimatePresence>
