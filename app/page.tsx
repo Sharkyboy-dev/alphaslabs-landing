@@ -7,6 +7,7 @@ import { Input } from '@/components/ui/input';
 import { motion, AnimatePresence } from 'framer-motion';
 import Head from 'next/head';
 import Link from 'next/link';
+import { FaXTwitter } from 'react-icons/fa6';
 
 const testimonials = [
   {
@@ -136,14 +137,13 @@ export default function Home() {
 
           {/* Twitter Follow */}
           <div className="flex justify-center mb-6">
-            <a href="https://twitter.com/AlphaSlabsHQ" target="_blank" rel="noopener noreferrer">
-              <Image
-                src="/twitter-icon.svg"
-                alt="Follow on Twitter"
-                width={36}
-                height={36}
-                className="hover:opacity-80 transition"
-              />
+            <a
+              href="https://twitter.com/AlphaSlabsHQ"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white hover:text-blue-400 text-2xl transition"
+            >
+              <FaXTwitter />
             </a>
           </div>
 
