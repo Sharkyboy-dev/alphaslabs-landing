@@ -128,6 +128,13 @@ export default function Home() {
             </motion.div>
           </AnimatePresence>
         </div>
+
+        {/* Stats Row */}
+        <div className="mt-10 flex flex-col sm:flex-row justify-center gap-6 text-sm text-gray-300">
+          <div>🔥 4,200 Flips Found</div>
+          <div>📈 $128,500+ in ROI</div>
+          <div>💬 2,900+ Beta Users</div>
+        </div>
       </motion.div>
 
       <AnimatePresence>
