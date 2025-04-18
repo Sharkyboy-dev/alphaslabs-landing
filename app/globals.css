@@ -126,7 +126,7 @@
     border-radius: 0.5rem;
     padding: 0.75rem 1rem;
     font-size: 1rem;
-    box-shadow: 0 0 10px #00f7ff;
+    box-shadow: 0 0 12px #00f7ff, 0 0 20px #00f7ff66;
     transition: all 0.3s ease;
   }
 
@@ -137,7 +137,7 @@
   input[type="email"]:focus {
     outline: none;
     border-color: #38bdf8;
-    box-shadow: 0 0 15px #38bdf8;
+    box-shadow: 0 0 15px #38bdf8, 0 0 30px #38bdf855;
     background-color: #0f172a;
   }
 }
