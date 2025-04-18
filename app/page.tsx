@@ -77,13 +77,20 @@ export default function Home() {
         <p className="text-xs text-gray-500 mb-2">
           As seen on:
         </p>
-        <div className="flex justify-center flex-wrap gap-4 text-sm text-gray-400 mb-4">
+        <div className="flex justify-center flex-wrap gap-4 text-sm text-gray-400 mb-8">
           <span className="hover:text-white transition">eBay</span>
           <span className="hover:text-white transition">COMC</span>
           <span className="hover:text-white transition">Mercari</span>
           <span className="hover:text-white transition">MySlabs</span>
           <span className="hover:text-white transition">PSA</span>
           <span className="hover:text-white transition">Beckett</span>
+        </div>
+
+        {/* Step 4: Testimonial Block */}
+        <div className="mt-4 max-w-xl mx-auto text-center">
+          <p className="text-sm text-gray-400 italic">
+            “Found a $200 Charizard for $45. This tool is 🔥” – @SlabHunter
+          </p>
         </div>
       </motion.div>
 
