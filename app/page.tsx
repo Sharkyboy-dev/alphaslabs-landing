@@ -175,14 +175,6 @@ export default function Home() {
             <div>📈 $128,500+ in ROI</div>
             <div>💬 2,900+ Beta Users</div>
           </div>
-
-          {/* Trust Boosters */}
-          <p className="text-xs text-gray-400 mt-8">
-            ⛓️ AlphaSlabs is powered by real-time pricing + live scans from eBay, COMC, Mercari, and MySlabs.
-          </p>
-          <p className="text-xs text-gray-500 mt-6">
-            © 2025 AlphaSlabs. All rights reserved.
-          </p>
         </motion.div>
 
         <AnimatePresence>
@@ -198,6 +190,16 @@ export default function Home() {
             </motion.div>
           )}
         </AnimatePresence>
+
+        {/* Footer */}
+        <footer className="mt-12 text-center text-xs text-gray-500 border-t border-gray-700 pt-6 w-full max-w-4xl mx-auto">
+          <div className="flex justify-center gap-6 mb-4">
+            <a href="/terms" className="hover:underline">Terms of Use</a>
+            <a href="/privacy" className="hover:underline">Privacy Policy</a>
+            <a href="mailto:dev@alphaslabs.app" className="hover:underline">Contact</a>
+          </div>
+          <p>© 2025 AlphaSlabs. All rights reserved.</p>
+        </footer>
       </main>
     </>
   );
