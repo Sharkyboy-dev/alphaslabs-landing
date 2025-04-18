@@ -86,11 +86,14 @@ export default function Home() {
           <span className="hover:text-white transition">Beckett</span>
         </div>
 
-        {/* Step 4: Testimonial Block */}
-        <div className="mt-4 max-w-xl mx-auto text-center">
-          <p className="text-sm text-gray-400 italic">
-            “Found a $200 Charizard for $45. This tool is 🔥” – @SlabHunter
-          </p>
+        {/* Step 4: Testimonial Styled as Chat Bubble */}
+        <div className="mt-4 max-w-xl mx-auto text-left">
+          <div className="inline-block bg-white text-black p-4 rounded-xl shadow-md">
+            <p className="text-sm">
+              “Found a $200 Charizard for $45. This tool is 🔥”<br />
+              <span className="text-xs text-gray-600">– @SlabHunter</span>
+            </p>
+          </div>
         </div>
       </motion.div>
 
