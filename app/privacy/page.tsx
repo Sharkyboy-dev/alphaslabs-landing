@@ -33,7 +33,7 @@ export default function PrivacyPolicyPage() {
       </ul>
 
       <p className="text-sm text-gray-400 mt-6">
-        For questions or concerns, please contact us at support@alphaslabs.app
+        For questions or concerns, please contact us at dev@alphaslabs.app
       </p>
     </main>
   );
