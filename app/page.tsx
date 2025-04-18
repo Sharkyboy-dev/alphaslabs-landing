@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { motion, AnimatePresence } from 'framer-motion';
 import Head from 'next/head';
+import Link from 'next/link';
 import { FaXTwitter } from 'react-icons/fa6';
 
 const testimonials = [
@@ -135,7 +136,8 @@ export default function Home() {
           </div>
 
           {/* Twitter Follow */}
-          <div className="flex justify-center mb-6">
+          <div className="flex flex-col items-center mb-6">
+            <span className="text-sm text-gray-400 mb-1">Follow us</span>
             <a
               href="https://twitter.com/AlphaSlabsHQ"
               target="_blank"
