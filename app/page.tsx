@@ -17,7 +17,7 @@ export default function Home() {
       return;
     }
     try {
-      const response = await fetch(
+      await fetch(
         'https://script.google.com/macros/s/AKfycbzpUNv67jdI2LEotPGfvoKrLc8ArNsldAB7bUlUMQs0us6TgFbS9JQFSeb_iz3UNQC7eQ/exec',
         {
           method: 'POST',
