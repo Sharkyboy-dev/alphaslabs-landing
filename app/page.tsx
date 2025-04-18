@@ -18,7 +18,7 @@ const testimonials = [
     author: '– @FlipMaster42',
   },
   {
-    text: '“Best ROI sniper I’ve used. Period.”',
+    text: '“Best ROI sniper I\u2019ve used. Period.”',
     author: '– @HobbyWhale',
   },
 ];
@@ -93,8 +93,6 @@ export default function Home() {
           `,
         }}
       />
-
-      {/* rest of the code remains the same */}
     </>
   );
 }
