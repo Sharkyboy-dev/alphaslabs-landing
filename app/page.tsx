@@ -1,15 +1,15 @@
-// app/page.tsx
 'use client';
 
 import { useState } from 'react';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 
 export default function Home() {
   const [email, setEmail] = useState('');
   const [submitted, setSubmitted] = useState(false);
+  const [showModal, setShowModal] = useState(false);
 
   const handleSubmit = async () => {
     if (!email || !email.includes('@')) {
@@ -29,6 +29,8 @@ export default function Home() {
         }
       );
       setSubmitted(true);
+      setShowModal(true);
+      setTimeout(() => setShowModal(false), 3000);
     } catch (error) {
       console.error('Submission error:', error);
     }
@@ -76,6 +78,20 @@ export default function Home() {
           As seen on eBay • COMC • Mercari • MySlabs
         </p>
       </motion.div>
+
+      <AnimatePresence>
+        {showModal && (
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.9 }}
+            transition={{ duration: 0.3 }}
+            className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 modal"
+          >
+            🎉 You're on the list!
+          </motion.div>
+        )}
+      </AnimatePresence>
     </main>
   );
 }
