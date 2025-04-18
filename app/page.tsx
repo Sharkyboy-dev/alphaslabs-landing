@@ -6,7 +6,6 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { motion, AnimatePresence } from 'framer-motion';
 import Head from 'next/head';
-import Script from 'next/script';
 
 const testimonials = [
   {
@@ -18,7 +17,7 @@ const testimonials = [
     author: '– @FlipMaster42',
   },
   {
-    text: '“Best ROI sniper I\u2019ve used. Period.”',
+    text: '“Best ROI sniper I’ve used. Period.”',
     author: '– @HobbyWhale',
   },
 ];
@@ -69,43 +68,37 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="keywords" content="sports cards, pokemon cards, ebay flips, sniping tool, AlphaSlabs, COMC, Mercari, MySlabs, PSA, Beckett" />
         <meta name="author" content="AlphaSlabs" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="AlphaSlabs – Card Sniping Intelligence" />
-        <meta name="twitter:description" content="Track undervalued cards across eBay, COMC, Mercari & more – join the Sniper Beta." />
-        <meta name="twitter:image" content="https://alphaslabs-landing.vercel.app/logo.png" />
-        <meta name="twitter:site" content="@AlphaSlabsHQ" />
+        <meta property="og:title" content="AlphaSlabs – Card Sniping Intelligence" />
+        <meta property="og:description" content="Track and flip undervalued cards with AlphaSlabs – a real-time market scanner for collectors and flippers." />
+        <meta property="og:image" content="/logo.png" />
+        <meta property="og:type" content="website" />
         <link rel="icon" href="/favicon.ico" />
+        {/* Analytics Script */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-9VKZ76T3V8"></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-9VKZ76T3V8');
+            `,
+          }}
+        />
       </Head>
 
-      <Script
-        src="https://www.googletagmanager.com/gtag/js?id=G-9VKZ76T3V8"
-        strategy="afterInteractive"
-      />
-      <Script
-        id="google-analytics"
-        strategy="afterInteractive"
-        dangerouslySetInnerHTML={{
-          __html: `
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-9VKZ76T3V8');
-          `,
-        }}
-      />
-
-      <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#0A0A0A] to-[#1A1A1A] p-4 text-white">
+      <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-black to-gray-900 p-4 text-white">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-center w-full max-w-xl"
+          className="text-center"
         >
           <Image
             src="/logo.png"
             alt="AlphaSlabs"
-            width={300}
-            height={300}
+            width={360}
+            height={360}
             className="mx-auto mb-6"
             priority
           />
@@ -126,34 +119,69 @@ export default function Home() {
                 onChange={(e) => setEmail(e.target.value)}
                 className="w-full"
               />
-              <Button
-                onClick={handleSubmit}
-                className="w-full sm:w-auto bg-red-600 hover:bg-red-700"
-              >
+              <Button onClick={handleSubmit} className="w-full sm:w-auto">
                 Enter
               </Button>
             </div>
           )}
-
-          <div className="bg-white text-black p-4 rounded-lg shadow-lg max-w-md mx-auto mb-6">
-            <p className="text-center italic text-sm">{testimonials[activeIndex].text}</p>
-            <p className="text-center text-xs mt-2">{testimonials[activeIndex].author}</p>
+          <p className="text-xs text-gray-500 mb-2">As seen on:</p>
+          <div className="flex justify-center flex-wrap gap-4 text-sm text-gray-400 mb-8">
+            <span className="hover:text-white transition">eBay</span>
+            <span className="hover:text-white transition">COMC</span>
+            <span className="hover:text-white transition">Mercari</span>
+            <span className="hover:text-white transition">MySlabs</span>
+            <span className="hover:text-white transition">PSA</span>
+            <span className="hover:text-white transition">Beckett</span>
           </div>
 
-          <p className="text-xs text-gray-500 mb-4">
-            As seen on eBay • COMC • Mercari • MySlabs
+          {/* Carousel Testimonial */}
+          <div className="w-full flex justify-center mt-4">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={activeIndex}
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -20 }}
+                transition={{ duration: 0.5 }}
+                className="inline-block bg-white text-black p-4 rounded-xl shadow-md max-w-md"
+              >
+                <p className="text-sm">
+                  {testimonials[activeIndex].text}
+                  <br />
+                  <span className="text-xs text-gray-600">
+                    {testimonials[activeIndex].author}
+                  </span>
+                </p>
+              </motion.div>
+            </AnimatePresence>
+          </div>
+
+          {/* Stats Row */}
+          <div className="mt-10 flex flex-col sm:flex-row justify-center gap-6 text-sm text-gray-300">
+            <div>🔥 4,200 Flips Found</div>
+            <div>📈 $128,500+ in ROI</div>
+            <div>💬 2,900+ Beta Users</div>
+          </div>
+
+          {/* Trust Boosters */}
+          <p className="text-xs text-gray-400 mt-8">
+            ⛓️ AlphaSlabs is powered by real-time pricing + live scans from eBay, COMC, Mercari, and MySlabs.
+          </p>
+          <p className="text-xs text-gray-500 mt-6">
+            © 2025 AlphaSlabs. All rights reserved.
           </p>
         </motion.div>
 
         <AnimatePresence>
           {showModal && (
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: 20 }}
-              className="fixed bottom-10 bg-green-600 text-white px-6 py-3 rounded-xl shadow-lg"
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.9 }}
+              transition={{ duration: 0.3 }}
+              className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 modal bg-white text-black p-4 rounded-lg shadow-lg"
             >
-              🎉 You&apos;re on the list!
+              🎉 You&#39;re on the list!
             </motion.div>
           )}
         </AnimatePresence>
