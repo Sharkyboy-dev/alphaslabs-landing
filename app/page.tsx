@@ -45,8 +45,8 @@ export default function Home() {
         <Image
           src="/logo.png"
           alt="AlphaSlabs"
-          width={360}
-          height={360}
+          width={220}
+          height={220}
           className="mx-auto mb-6"
           priority
         />
@@ -59,7 +59,7 @@ export default function Home() {
             : 'Enter your email to access the Sniper Beta'}
         </p>
         {!submitted && (
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-2 max-w-sm mx-auto">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-2 max-w-sm mx-auto mb-6">
             <Input
               type="email"
               placeholder="you@example.com"
@@ -72,6 +72,17 @@ export default function Home() {
             </Button>
           </div>
         )}
+        <p className="text-xs text-gray-500 mb-4">
+          As seen on eBay • COMC • Mercari • MySlabs
+        </p>
+        <a
+          href="https://twitter.com/sharkyboy_nft"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-block text-sm px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-md transition"
+        >
+          Follow us on Twitter
+        </a>
       </motion.div>
     </main>
   );
