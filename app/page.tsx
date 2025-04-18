@@ -52,7 +52,7 @@ export default function Home() {
           className="mx-auto mb-6"
           priority
         />
-        <h1 className="text-3xl md:text-5xl font-bold mb-2 text-white">
+        <h1 className="text-3xl md:text-5xl font-bold mb-2">
           Built for collectors. Powered by alpha.
         </h1>
         <p className="text-gray-400 mb-6 text-sm md:text-base">
@@ -74,9 +74,7 @@ export default function Home() {
             </Button>
           </div>
         )}
-        <p className="text-xs text-gray-500 mb-2">
-          As seen on:
-        </p>
+        <p className="text-xs text-gray-500 mb-2">As seen on:</p>
         <div className="flex justify-center flex-wrap gap-4 text-sm text-gray-400 mb-8">
           <span className="hover:text-white transition">eBay</span>
           <span className="hover:text-white transition">COMC</span>
@@ -86,8 +84,8 @@ export default function Home() {
           <span className="hover:text-white transition">Beckett</span>
         </div>
 
-        {/* Step 4: Testimonial Styled as Chat Bubble */}
-        <div className="mt-4 max-w-xl mx-auto text-left">
+        {/* Centered Testimonial */}
+        <div className="w-full flex justify-center mt-4">
           <div className="inline-block bg-white text-black p-4 rounded-xl shadow-md">
             <p className="text-sm">
               “Found a $200 Charizard for $45. This tool is 🔥”<br />
