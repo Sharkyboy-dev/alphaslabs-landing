@@ -119,4 +119,25 @@
   body {
     @apply bg-background text-foreground;
   }
+  input[type="email"] {
+    background-color: #111827;
+    color: #ffffff;
+    border: 2px solid #00f7ff;
+    border-radius: 0.5rem;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    box-shadow: 0 0 10px #00f7ff;
+    transition: all 0.3s ease;
+  }
+
+  input[type="email"]::placeholder {
+    color: #a0aec0;
+  }
+
+  input[type="email"]:focus {
+    outline: none;
+    border-color: #38bdf8;
+    box-shadow: 0 0 15px #38bdf8;
+    background-color: #0f172a;
+  }
 }
