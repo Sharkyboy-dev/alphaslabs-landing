@@ -72,6 +72,18 @@ export default function Home() {
         <meta property="og:description" content="Track and flip undervalued cards with AlphaSlabs – a real-time market scanner for collectors and flippers." />
         <meta property="og:image" content="/logo.png" />
         <meta property="og:type" content="website" />
+        {/* Analytics Script */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-9VKZ76T3V8"></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-9VKZ76T3V8');
+            `,
+          }}
+        />
       </Head>
 
       <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-black to-gray-900 p-4 text-white">
