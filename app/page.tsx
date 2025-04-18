@@ -45,8 +45,8 @@ export default function Home() {
         <Image
           src="/logo.png"
           alt="AlphaSlabs"
-          width={160}
-          height={160}
+          width={220}
+          height={220}
           className="mx-auto mb-6"
           priority
         />
