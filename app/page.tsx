@@ -75,14 +75,6 @@ export default function Home() {
         <p className="text-xs text-gray-500 mb-4">
           As seen on eBay • COMC • Mercari • MySlabs
         </p>
-        <a
-          href="https://twitter.com/sharkyboy_nft"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-block text-sm px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-md transition"
-        >
-          Follow us on Twitter
-        </a>
       </motion.div>
     </main>
   );
