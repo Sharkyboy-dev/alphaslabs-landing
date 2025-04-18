@@ -1,6 +1,8 @@
+// app/page.tsx
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { motion } from 'framer-motion';
@@ -10,9 +12,12 @@ export default function Home() {
   const [submitted, setSubmitted] = useState(false);
 
   const handleSubmit = async () => {
-    if (!email) return;
+    if (!email || !email.includes('@')) {
+      alert('Please enter a valid email address.');
+      return;
+    }
     try {
-      await fetch(
+      const response = await fetch(
         'https://script.google.com/macros/s/AKfycbzpUNv67jdI2LEotPGfvoKrLc8ArNsldAB7bUlUMQs0us6TgFbS9JQFSeb_iz3UNQC7eQ/exec',
         {
           method: 'POST',
@@ -37,42 +42,35 @@ export default function Home() {
         transition={{ duration: 0.8 }}
         className="text-center"
       >
-        <img src="/logo.png" alt="AlphaSlabs" className="mx-auto mb-6 w-40" />
+        <Image
+          src="/logo.png"
+          alt="AlphaSlabs"
+          width={160}
+          height={160}
+          className="mx-auto mb-6"
+          priority
+        />
         <h1 className="text-3xl md:text-5xl font-bold mb-2">
           Built for collectors. Powered by alpha.
         </h1>
-
-        {!submitted ? (
-          <>
-            <p className="text-gray-400 mb-6 text-sm md:text-base">
-              Enter your email to access the Sniper Beta
-            </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-2 max-w-sm mx-auto">
-              <Input
-                type="email"
-                placeholder="you@example.com"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                className="w-full"
-              />
-              <Button onClick={handleSubmit} className="w-full sm:w-auto">
-                Enter
-              </Button>
-            </div>
-          </>
-        ) : (
-          <>
-            <p className="text-green-400 mb-6 font-medium text-lg">
-              ✅ You’re in. Launch the Sniper below.
-            </p>
-            <Button
-              variant="default"
-              className="text-white px-6 py-3 rounded-lg text-lg shadow-md bg-gradient-to-r from-green-500 to-teal-500 hover:from-green-600 hover:to-teal-600 transition"
-              onClick={() => window.location.href = 'https://alphaslabs.streamlit.app'}
-            >
-              🚀 Launch AlphaSniper
+        <p className="text-gray-400 mb-6 text-sm md:text-base">
+          {submitted
+            ? 'Thanks for joining the waitlist!'
+            : 'Enter your email to access the Sniper Beta'}
+        </p>
+        {!submitted && (
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-2 max-w-sm mx-auto">
+            <Input
+              type="email"
+              placeholder="you@example.com"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className="w-full"
+            />
+            <Button onClick={handleSubmit} className="w-full sm:w-auto">
+              Enter
             </Button>
-          </>
+          </div>
         )}
       </motion.div>
     </main>
