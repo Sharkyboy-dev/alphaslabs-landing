@@ -1,15 +1,31 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { motion, AnimatePresence } from 'framer-motion';
 
+const testimonials = [
+  {
+    text: '“Found a $200 Charizard for $45. This tool is 🔥”',
+    author: '– @SlabHunter',
+  },
+  {
+    text: '“Caught a PSA 10 for half the price. Unreal.”',
+    author: '– @FlipMaster42',
+  },
+  {
+    text: '“Best ROI sniper I’ve used. Period.”',
+    author: '– @HobbyWhale',
+  },
+];
+
 export default function Home() {
   const [email, setEmail] = useState('');
   const [submitted, setSubmitted] = useState(false);
   const [showModal, setShowModal] = useState(false);
+  const [activeIndex, setActiveIndex] = useState(0);
 
   const handleSubmit = async () => {
     if (!email || !email.includes('@')) {
@@ -35,6 +51,13 @@ export default function Home() {
       console.error('Submission error:', error);
     }
   };
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-black to-gray-900 p-4 text-white">
@@ -84,14 +107,26 @@ export default function Home() {
           <span className="hover:text-white transition">Beckett</span>
         </div>
 
-        {/* Centered Testimonial */}
+        {/* Carousel Testimonial */}
         <div className="w-full flex justify-center mt-4">
-          <div className="inline-block bg-white text-black p-4 rounded-xl shadow-md">
-            <p className="text-sm">
-              “Found a $200 Charizard for $45. This tool is 🔥”<br />
-              <span className="text-xs text-gray-600">– @SlabHunter</span>
-            </p>
-          </div>
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={activeIndex}
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -20 }}
+              transition={{ duration: 0.5 }}
+              className="inline-block bg-white text-black p-4 rounded-xl shadow-md max-w-md"
+            >
+              <p className="text-sm">
+                {testimonials[activeIndex].text}
+                <br />
+                <span className="text-xs text-gray-600">
+                  {testimonials[activeIndex].author}
+                </span>
+              </p>
+            </motion.div>
+          </AnimatePresence>
         </div>
       </motion.div>
 
