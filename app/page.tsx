@@ -42,7 +42,7 @@ export default function Home() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        className="text-center w-full max-w-xl"
+        className="text-center"
       >
         <Image
           src="/logo.png"
@@ -52,7 +52,7 @@ export default function Home() {
           className="mx-auto mb-6"
           priority
         />
-        <h1 className="text-3xl md:text-5xl font-bold mb-2">
+        <h1 className="text-3xl md:text-5xl font-bold mb-2 text-white">
           Built for collectors. Powered by alpha.
         </h1>
         <p className="text-gray-400 mb-6 text-sm md:text-base">
@@ -74,7 +74,9 @@ export default function Home() {
             </Button>
           </div>
         )}
-        <p className="text-xs text-gray-500 mb-2">As seen on:</p>
+        <p className="text-xs text-gray-500 mb-2">
+          As seen on:
+        </p>
         <div className="flex justify-center flex-wrap gap-4 text-sm text-gray-400 mb-8">
           <span className="hover:text-white transition">eBay</span>
           <span className="hover:text-white transition">COMC</span>
@@ -85,8 +87,8 @@ export default function Home() {
         </div>
 
         {/* Step 4: Testimonial Styled as Chat Bubble */}
-        <div className="flex justify-center">
-          <div className="inline-block bg-white text-black p-4 rounded-xl shadow-md max-w-md text-left">
+        <div className="mt-4 max-w-xl mx-auto text-left">
+          <div className="inline-block bg-white text-black p-4 rounded-xl shadow-md">
             <p className="text-sm">
               “Found a $200 Charizard for $45. This tool is 🔥”<br />
               <span className="text-xs text-gray-600">– @SlabHunter</span>
@@ -104,7 +106,7 @@ export default function Home() {
             transition={{ duration: 0.3 }}
             className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 modal bg-white text-black p-4 rounded-lg shadow-lg"
           >
-            🎉 You&apos;re on the list!
+            🎉 You&#39;re on the list!
           </motion.div>
         )}
       </AnimatePresence>
