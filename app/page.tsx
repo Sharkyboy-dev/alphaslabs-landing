@@ -1,3 +1,4 @@
+// app/page.tsx
 'use client';
 
 import { useState, useEffect } from 'react';
@@ -87,31 +88,31 @@ export default function Home() {
         />
       </Head>
 
-      <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-black to-gray-900 p-4 text-white">
+      <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-black to-gray-900 px-4 py-10 text-white">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-center"
+          className="text-center w-full max-w-2xl"
         >
           <Image
             src="/logo.png"
             alt="AlphaSlabs"
-            width={360}
-            height={360}
-            className="mx-auto mb-6"
+            width={300}
+            height={300}
+            className="mx-auto mb-6 w-48 sm:w-72"
             priority
           />
-          <h1 className="text-3xl md:text-5xl font-bold mb-2">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-2">
             Built for collectors. Powered by alpha.
           </h1>
-          <p className="text-gray-400 mb-6 text-sm md:text-base">
+          <p className="text-gray-400 mb-6 text-sm sm:text-base">
             {submitted
               ? 'Thanks for joining the waitlist!'
               : 'Enter your email to access the Sniper Beta'}
           </p>
           {!submitted && (
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-2 max-w-sm mx-auto mb-6">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-2 max-w-md mx-auto mb-6">
               <Input
                 type="email"
                 placeholder="you@example.com"
@@ -124,6 +125,8 @@ export default function Home() {
               </Button>
             </div>
           )}
+
+          {/* Logos */}
           <p className="text-xs text-gray-500 mb-2">As seen on:</p>
           <div className="flex justify-center flex-wrap gap-4 text-sm text-gray-400 mb-8">
             <span className="hover:text-white transition">eBay</span>
@@ -134,8 +137,8 @@ export default function Home() {
             <span className="hover:text-white transition">Beckett</span>
           </div>
 
-          {/* Carousel Testimonial */}
-          <div className="w-full flex justify-center mt-4">
+          {/* Testimonial Carousel */}
+          <div className="w-full flex justify-center mt-4 px-4">
             <AnimatePresence mode="wait">
               <motion.div
                 key={activeIndex}
@@ -143,7 +146,7 @@ export default function Home() {
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -20 }}
                 transition={{ duration: 0.5 }}
-                className="inline-block bg-white text-black p-4 rounded-xl shadow-md max-w-md"
+                className="inline-block bg-white text-black p-4 rounded-xl shadow-md w-full max-w-md text-left"
               >
                 <p className="text-sm">
                   {testimonials[activeIndex].text}
@@ -157,21 +160,22 @@ export default function Home() {
           </div>
 
           {/* Stats Row */}
-          <div className="mt-10 flex flex-col sm:flex-row justify-center gap-6 text-sm text-gray-300">
+          <div className="mt-10 flex flex-col sm:flex-row justify-center gap-6 text-sm text-gray-300 text-center">
             <div>🔥 4,200 Flips Found</div>
             <div>📈 $128,500+ in ROI</div>
             <div>💬 2,900+ Beta Users</div>
           </div>
 
-          {/* Trust Boosters */}
-          <p className="text-xs text-gray-400 mt-8">
+          {/* Footer */}
+          <p className="text-xs text-gray-400 mt-8 px-4">
             ⛓️ AlphaSlabs is powered by real-time pricing + live scans from eBay, COMC, Mercari, and MySlabs.
           </p>
-          <p className="text-xs text-gray-500 mt-6">
+          <p className="text-xs text-gray-500 mt-6 px-4">
             © 2025 AlphaSlabs. All rights reserved.
           </p>
         </motion.div>
 
+        {/* Confirmation Modal */}
         <AnimatePresence>
           {showModal && (
             <motion.div
@@ -179,9 +183,9 @@ export default function Home() {
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.9 }}
               transition={{ duration: 0.3 }}
-              className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 modal bg-white text-black p-4 rounded-lg shadow-lg"
+              className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 modal bg-white text-black p-4 rounded-lg shadow-lg text-lg"
             >
-              🎉 You&#39;re on the list!
+              🎉 You're on the list!
             </motion.div>
           )}
         </AnimatePresence>
