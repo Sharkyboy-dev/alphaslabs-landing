@@ -1,4 +1,3 @@
-// app/page.tsx
 'use client';
 
 import { useState } from 'react';
@@ -42,24 +41,38 @@ export default function Home() {
         <h1 className="text-3xl md:text-5xl font-bold mb-2">
           Built for collectors. Powered by alpha.
         </h1>
-        <p className="text-gray-400 mb-6 text-sm md:text-base">
-          {submitted
-            ? 'Thanks for joining the waitlist!'
-            : 'Enter your email to access the Sniper Beta'}
-        </p>
-        {!submitted && (
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-2 max-w-sm mx-auto">
-            <Input
-              type="email"
-              placeholder="you@example.com"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className="w-full"
-            />
-            <Button onClick={handleSubmit} className="w-full sm:w-auto">
-              Enter
+
+        {!submitted ? (
+          <>
+            <p className="text-gray-400 mb-6 text-sm md:text-base">
+              Enter your email to access the Sniper Beta
+            </p>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-2 max-w-sm mx-auto">
+              <Input
+                type="email"
+                placeholder="you@example.com"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="w-full"
+              />
+              <Button onClick={handleSubmit} className="w-full sm:w-auto">
+                Enter
+              </Button>
+            </div>
+          </>
+        ) : (
+          <>
+            <p className="text-green-400 mb-6 font-medium text-lg">
+              ✅ You’re in. Launch the Sniper below.
+            </p>
+            <Button
+              variant="default"
+              className="text-white px-6 py-3 rounded-lg text-lg shadow-md bg-gradient-to-r from-green-500 to-teal-500 hover:from-green-600 hover:to-teal-600 transition"
+              onClick={() => window.location.href = 'https://alphaslabs.streamlit.app'}
+            >
+              🚀 Launch AlphaSniper
             </Button>
-          </div>
+          </>
         )}
       </motion.div>
     </main>
