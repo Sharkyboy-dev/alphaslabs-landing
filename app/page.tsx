@@ -135,6 +135,14 @@ export default function Home() {
           <div>📈 $128,500+ in ROI</div>
           <div>💬 2,900+ Beta Users</div>
         </div>
+
+        {/* Trust Boosters */}
+        <p className="text-xs text-gray-400 mt-8">
+          ⛓️ AlphaSlabs is powered by real-time pricing + live scans from eBay, COMC, Mercari, and MySlabs.
+        </p>
+        <p className="text-xs text-gray-500 mt-6">
+          © 2025 AlphaSlabs. All rights reserved.
+        </p>
       </motion.div>
 
       <AnimatePresence>
