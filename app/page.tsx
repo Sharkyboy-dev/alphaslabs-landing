@@ -196,7 +196,7 @@ export default function Home() {
           <div className="flex justify-center gap-6 mb-4">
             <a href="/terms" className="hover:underline">Terms of Use</a>
             <a href="/privacy" className="hover:underline">Privacy Policy</a>
-            <a href="mailto:dev@alphaslabs.app" className="hover:underline">Contact</a>
+            <a href="/contact" className="hover:underline">Contact</a>
           </div>
           <p>© 2025 AlphaSlabs. All rights reserved.</p>
         </footer>
